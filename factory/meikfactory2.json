@@ -1,0 +1,9 @@
+{
+	"name": "meikfactory2",
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0578a778-1119-49e9-8ed6-08474d7ad25a",
+		"tenantId": "e8cb30c1-a6c6-4778-ab79-dc9f6c62a59d"
+	}
+}
