@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory-Name",
+			"defaultValue": "meikfactory2"
+		},
+		"ADLS2_accountKey": {
+			"type": "secureString",
+			"metadata": "Sichere Zeichenfolge für \"accountKey\" von \"ADLS2\""
+		},
+		"PostgreSql1_connectionString": {
+			"type": "secureString",
+			"metadata": "Sichere Zeichenfolge für \"connectionString\" von \"PostgreSql1\""
+		},
+		"ADLS2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://abtglablivedtlab019531.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI für Speicherkonto mit verknüpften ARM-Vorlagen"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "SAS-Token für Speicherkonto mit verknüpften ARM-Vorlagen"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "meikfactory2_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS2_accountKey": {
+						"value": "[parameters('ADLS2_accountKey')]"
+					},
+					"PostgreSql1_connectionString": {
+						"value": "[parameters('PostgreSql1_connectionString')]"
+					},
+					"ADLS2_properties_typeProperties_url": {
+						"value": "[parameters('ADLS2_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
