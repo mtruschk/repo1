@@ -1,0 +1,16 @@
+{
+	"name": "SourceDataset_4hm",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "PostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "distillery2",
+			"table": "testdata"
+		}
+	}
+}
